@@ -33,7 +33,7 @@ C4Context
 
     System(edusec, "EDUSEC TECH Platform", "SPA Web interactiva con gestión académica, analítica, mensajería y EduCoach AI")
 
-    System_Ext(netlify, "Netlify Edge CDN", "Alojamiento estático global, compresión Brotli y routing SPA")
+    System_Ext(webserver, "Servidor Web HTTP / Static Hosting", "Servidor HTTP estándar o entorno local, compresión y distribución estática")
     System_Ext(localstorage, "Client Reactive Store", "Persistencia local estructurada, eventos reactivos y caché offline")
 
     Rel(padre, edusec, "Monitorea a sus hijos y conversa con profesores", "HTTPS/Web")
@@ -41,7 +41,7 @@ C4Context
     Rel(estudiante, edusec, "Envía tareas, rinde exámenes y consulta progreso", "HTTPS/Web")
     Rel(director, edusec, "Audita la institución y gestiona usuarios/cursos", "HTTPS/Web")
 
-    Rel(edusec, netlify, "Servido por", "HTTPS / CDN")
+    Rel(edusec, webserver, "Servido por", "HTTP / HTTPS")
     Rel(edusec, localstorage, "Sincroniza estado, notas y mensajería en", "Web Storage API")
 ```
 
@@ -69,17 +69,17 @@ graph TD
         LocalStorage[("Almacenamiento Local (LocalStorage JSON Store)")]
     end
 
-    subgraph Infraestructura Cloud
-        Netlify["Netlify Edge Hosting (CDN / netlify.toml)"]
-        GitHub["GitHub Repository (Control de Versiones y Despliegue Continuo)"]
+    subgraph Infraestructura y Control de Versiones
+        WebServer["Servidor Web (Nginx / Apache / Node / Localhost)"]
+        GitHub["GitHub Repository (Control de Versiones y Respaldo de Código)"]
     end
 
     UI <--> Router
     Router <--> Modulos de Negocio
     Modulos de Negocio <--> StateEngine
     StateEngine <--> LocalStorage
-    GitHub -->|Auto-deploy en git push| Netlify
-    Netlify -->|Distribución HTTPS| UI
+    WebServer -->|Distribución HTTP / HTTPS| UI
+    GitHub -.->|Gestión de versiones| WebServer
 ```
 
 ---
@@ -279,21 +279,18 @@ La plataforma aplica un modelo de seguridad por perfil donde cada usuario dispon
 
 ---
 
-## 7. Despliegue e Infraestructura Cloud
+## 7. Despliegue y Distribución
 
 ```mermaid
 graph LR
     Dev["Desarrollador / Git Commit"] -->|git push origin main| GitHub["GitHub Repo (CrisCas0824/EDUSEC-TECH)"]
-    GitHub -->|Webhook Trigger| NetlifyBuild["Netlify CI/CD Pipeline"]
-    NetlifyBuild --> NetlifyEdge["Netlify Global Edge CDN"]
-    NetlifyEdge -->|https://edusectech.netlify.app/| EndUsers["Navegadores de Usuarios (PC / Tablet / Celular)"]
+    GitHub -->|Distribución de Código| WebServer["Servidor Web Estático / Localhost"]
+    WebServer --> EndUsers["Navegadores de Usuarios (PC / Tablet / Celular)"]
 ```
 
-- **Dominio y URL en Producción:** `https://edusectech.netlify.app/`
-- **Configuración Netlify (`netlify.toml`):**
-  - Directorio de publicación: `.` (Raíz)
-  - Reglas de redirección SPA: `/* -> /index.html` con estado `200`
-- **Zero Build Step:** La arquitectura no requiere transpiladores pesados, lo que permite despliegues atómicos instantáneos (< 15 segundos).
+- **Control de Versiones Oficial:** Repositorio en GitHub `https://github.com/CrisCas0824/EDUSEC-TECH`
+- **Zero Build Step:** La arquitectura no requiere transpiladores ni procesos complejos de compilación (`node_modules`), lo que permite su ejecución inmediata en cualquier servidor estático (Apache, Nginx, Live Server, Python HTTP) o abriendo directamente `index.html`.
+- **Portabilidad Total:** La aplicación es autónoma y almacena su base de datos de manera reactiva en el cliente.
 
 ---
 

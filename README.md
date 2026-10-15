@@ -2,17 +2,10 @@
 
 > **Plataforma Web Integral de Gestión Académica, Seguimiento Escolar, Comunicación en Tiempo Real y Asistencia Pedagógica con Inteligencia Artificial.**
 
-[![Netlify Status](https://img.shields.io/badge/Deploy-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://edusectech.netlify.app/)
 [![Version](https://img.shields.io/badge/Versión-6.7%20Avanzado-3b82f6?style=for-the-badge)](https://github.com/CrisCas0824/EDUSEC-TECH)
 [![Accessibility](https://img.shields.io/badge/Accesibilidad-Ley%2029733%20%7C%20WCAG%202.1-10b981?style=for-the-badge)](https://github.com/CrisCas0824/EDUSEC-TECH)
 [![Architecture](https://img.shields.io/badge/Arquitectura-SPA%20Vanilla%20Modular-8b5cf6?style=for-the-badge)](./ARCHITECTURE.md)
-
----
-
-## 🌐 Demo en Vivo
-
-Puedes acceder a la plataforma desplegada en producción a través del siguiente enlace:
-👉 **[https://edusectech.netlify.app/](https://edusectech.netlify.app/)**
+[![Platform](https://img.shields.io/badge/Plataforma-Web%20SPA%20Standalone-059669?style=for-the-badge)](https://github.com/CrisCas0824/EDUSEC-TECH)
 
 ---
 
@@ -95,7 +88,6 @@ Todos los usuarios cuentan con la contraseña por defecto: **`123456`**. En la p
 ```
 EDUSEC-TECH/
 ├── index.html                  # Punto de entrada de la aplicación SPA
-├── netlify.toml                # Configuración de despliegue y reglas de enrutamiento
 ├── ARCHITECTURE.md             # Especificación técnica y arquitectura de software
 ├── README.md                   # Documentación principal del repositorio
 ├── serve.bat                   # Script de ejecución local en Windows (CMD)
