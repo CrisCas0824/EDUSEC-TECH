@@ -1,0 +1,107 @@
+/* ============================================
+   LAYOUT — Full-width TopNav Layout
+   ============================================ */
+.login{
+  min-height:100vh;
+  display:flex;
+  background:var(--bg);
+}
+.login-left{
+  flex:1;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#0F172A 0%,#1E293B 50%,#334155 100%);
+  padding:48px;
+  position:relative;
+  overflow:hidden;
+}
+.login-left::before{
+  content:"";position:absolute;
+  top:-50%;right:-30%;
+  width:600px;height:600px;
+  border-radius:50%;
+  background:rgba(37,99,235,.08);
+}
+.login-left::after{
+  content:"";position:absolute;
+  bottom:-40%;left:-20%;
+  width:500px;height:500px;
+  border-radius:50%;
+  background:rgba(37,99,235,.05);
+}
+.login-brand{
+  position:relative;z-index:1;
+  max-width:420px;
+  color:#fff;
+  text-align:left;
+}
+.login-brand h1{
+  color:#fff;font-size:2.5rem;font-weight:800;
+  margin:24px 0 0;letter-spacing:1px;
+}
+.login-brand h1 span{color:rgba(255,255,255,.5);font-weight:400}
+.login-brand p{
+  color:rgba(255,255,255,.45);
+  font-size:1.05rem;margin:8px 0 0;
+}
+.login-features{
+  margin-top:40px;display:flex;flex-direction:column;gap:14px;
+}
+.login-feature{
+  display:flex;align-items:center;gap:12px;
+  color:rgba(255,255,255,.6);
+  font-size:.92rem;font-weight:500;
+}
+.lf-icon{
+  width:32px;height:32px;
+  display:grid;place-items:center;
+  background:rgba(37,99,235,.2);
+  border-radius:8px;font-size:.7rem;
+  color:rgba(255,255,255,.7);
+}
+.login-right{
+  width:520px;min-width:420px;
+  display:flex;align-items:center;justify-content:center;
+  padding:48px;
+  background:#fff;
+}
+
+/* App Shell — Full Width with TopNav */
+.app{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  background:var(--bg);
+}
+.content{
+  flex:1;
+  padding:0 32px;
+  display:grid;
+  gap:20px;
+  max-width:1440px;
+  width:100%;
+  margin:0 auto;
+}
+
+/* Grid Systems */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid2{display:grid;grid-template-columns:1.3fr .9fr;gap:20px}
+.auto{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.auto3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.chart-row{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.chart-row>.card{max-height:clamp(340px,50vh,480px);display:flex;flex-direction:column}
+.chart-row>.card>h3{flex-shrink:0}
+.chart-row>.card>.scroll-content{overflow-y:auto;flex:1;min-height:0}
+.chart-row>.card>.scroll-content::-webkit-scrollbar{width:5px}
+.chart-row>.card>.scroll-content::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:999px}
+.chart-row>.card>.scroll-content::-webkit-scrollbar-track{background:transparent}
+.chart-row>.card>.scroll-y{flex:1;min-height:0;max-height:none}
+.page-body{display:grid;gap:20px;align-content:start}
+.hdr-actions{display:flex;gap:12px;align-items:center;flex-shrink:0}
+.mt-12{margin-top:12px}
+.empty-state{text-align:center;padding:32px 16px;color:var(--mut);font-size:.92rem}
+.alerts-stack{display:flex;flex-direction:column;gap:12px}
+.scroll-y{max-height:clamp(220px,45vh,480px);overflow-y:auto;padding-right:12px}
+.scroll-y::-webkit-scrollbar{width:4px}
+.scroll-y::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:999px}
+.scroll-y::-webkit-scrollbar-track{background:transparent}

@@ -1,0 +1,111 @@
+/* ============================================
+   CARDS — Premium Elevation System
+   ============================================ */
+.card{padding:var(--card-pad);border-radius:var(--radius);border:1px solid var(--line);background:#fff;box-shadow:var(--shadow-card)}
+.card:hover{box-shadow:var(--shadow-card-hover)}
+.kpi-row>.card{padding:20px}
+.card .grid3>.card{padding:14px 12px}
+.card .grid3 .kpi .val{font-size:1.2rem}
+.section-title{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.section-title h2{margin:0}
+.kpi{text-align:center}
+.kpi .val{font-size:1.6rem;font-weight:800;margin:8px 0}
+.stat{text-align:center;padding:16px;border-radius:var(--radius-sm);background:var(--bg)}
+.stat .val{font-size:1.3rem;font-weight:800;margin:8px 0}
+.stat b{display:block;font-size:.85rem}
+.ok{color:var(--g)}
+.warn{color:var(--a)}
+.bad{color:var(--r)}
+.badge{
+  display:inline-flex;padding:6px 14px;
+  border-radius:999px;
+  font-size:12px;font-weight:700;
+  background:var(--soft);color:var(--p);
+}
+.badge.primary{background:var(--p);color:#fff}
+.badge.ok{background:var(--success-bg);color:var(--success-text)}
+.badge.err{background:var(--danger-bg);color:var(--danger-text)}
+.b-warn{background:var(--warning-bg);color:var(--warning-text)}
+.progress-wrap{margin-top:8px}
+.progress-label{display:flex;justify-content:space-between;font-size:.8rem;color:var(--mut);margin-bottom:4px}
+
+/* ============================================
+   COLORFUL COURSE CARDS — Moodle USS Style
+   ============================================ */
+.course-card-clickable{
+  border-radius:6px;
+  padding:0;
+  cursor:pointer;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .15s,box-shadow .2s;
+  box-shadow:0 1px 3px rgba(0,0,0,.12);
+  border:1px solid var(--line);
+  background:#fff;
+}
+.course-card-clickable:hover{
+  transform:translateY(-3px);
+  box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+.course-card-clickable:active{
+  transform:translateY(0);
+}
+.course-card-top{
+  height:110px;
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-end;
+  padding:10px;
+  color:#fff;
+}
+.course-card-icon{
+  font-size:1rem;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.2));
+  line-height:1;
+}
+.course-card-badge{
+  position:absolute;top:8px;left:10px;
+  background:rgba(255,255,255,.25);
+  backdrop-filter:blur(4px);
+  padding:3px 10px;
+  border-radius:4px;
+  font-size:.7rem;
+  font-weight:700;
+}
+.course-card-bottom{
+  padding:12px 14px 16px;
+  background:#fff;
+}
+.course-card-bottom h3{
+  color:var(--p);
+  font-size:.9rem;
+  font-weight:bold;
+  margin:0 0 4px;
+  line-height:1.3;
+}
+.course-card-meta{
+  color:var(--mut);
+  font-size:.8rem;
+  margin:0;
+}
+.course-card-stats{
+  font-size:.78rem;
+  color:var(--mut);
+  margin-top:4px;
+}
+.course-card-stats b{
+  font-weight:700;
+  color:var(--text);
+}
+
+/* Banner patterns */
+.banner-grey{background:repeating-linear-gradient(90deg,#b9b9be 0 60px,#a8a8ad 60px 120px)}
+.banner-orange{background:repeating-linear-gradient(90deg,#e8b356 0 40px,#dca23c 40px 80px)}
+.banner-teal{background:linear-gradient(135deg,#4fd6c8,#2fb6c4)}
+.banner-purple{background:repeating-linear-gradient(60deg,#a99be0 0 30px,#8f7bd6 30px 60px)}
+.banner-lightgrey{background:repeating-linear-gradient(90deg,#e2e2e6 0 40px,#d3d3d8 40px 80px)}
+.banner-blue{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)}
+.banner-pink{background:repeating-linear-gradient(135deg,#f093fb 0 40px,#f5576c 40px 80px)}
+.banner-green{background:linear-gradient(135deg,#43e97b 0%,#38f9d7 100%)}

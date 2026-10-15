@@ -1,0 +1,177 @@
+/* ============================================
+   RESPONSIVE — TopNav-based Layout
+   ============================================ */
+html,body{max-width:100%;overflow-x:hidden;min-height:100%;background:var(--bg)}
+img,video,canvas,svg{max-width:100%}
+.app{min-width:0;min-height:100vh;background:var(--bg)}
+.content{min-height:auto;background:var(--bg)}
+.content,.card,.table-wrap,.grid2,.grid3,.grid4,.auto,.auto3,.reg-grid,.kpi-row,.chart-row,.page-body{min-width:0}
+
+.table{min-width:720px}
+.card:has(.table){overflow-x:auto}
+.card:has(.sch-table){overflow-x:auto}
+.task{min-width:0}
+.task>div{min-width:0}
+.task b,.task span,.task p,.muted{overflow-wrap:anywhere;word-break:normal}
+.actions{align-items:center}
+.pro-bars,.line-proper,.pro-line,.better-chart,.vchart,.elegant-bars{max-width:100%;overflow:hidden}
+.auto,.auto3,.reg-grid,.grid2,.grid3,.grid4{align-items:start}
+.auto>.card,.grid2>.card,.grid3>.card,.grid4>.card{height:auto;min-height:0;align-self:start}
+.auto>.card{padding-bottom:18px}
+.grid4>.card{min-height:80px}
+.card:has(table){height:auto;min-height:0}
+.table{margin-bottom:0}
+.card:has(select),.card:has(.btn){height:auto}
+.card{max-height:none}
+.course-card-action .actions{display:flex;flex-wrap:wrap;gap:8px}
+.course-card-action .btn{width:auto;flex:0 0 auto}
+.stat{padding:12px}
+.stat .val{font-size:1.3rem}
+
+/* Login hidden states */
+body:not(.logged-in) .app{display:none}
+body:not(.logged-in) .topnav{display:none}
+body.logged-in #login{display:none}
+
+/* ============================================
+   TABLET — max-width: 1024px
+   ============================================ */
+@media (max-width:1024px){
+  .topnav-center{
+    gap:2px;padding:0 8px;
+  }
+  .topnav-center button{
+    padding:7px 10px;font-size:.8rem;
+  }
+  .content{padding:20px 24px}
+  .grid4,.kpi-row{grid-template-columns:repeat(2,1fr)}
+  .grid3,.chart-row{grid-template-columns:repeat(2,1fr)}
+  .grid2{grid-template-columns:1fr}
+  .auto{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .login-features{display:none}
+}
+
+/* ============================================
+   TABLET SMALL — max-width: 900px
+   ============================================ */
+@media (max-width:900px){
+  .topnav-hamburger{display:grid}
+  .topnav-center{
+    display:none;
+    position:fixed;top:var(--topnav-h);left:0;right:0;
+    background:#fff;
+    border:1px solid var(--line);
+    flex-direction:column;
+    align-items:stretch;
+    padding:12px;
+    gap:4px;
+    z-index:49;
+    box-shadow:0 12px 40px rgba(0,0,0,.12);
+    max-height:calc(100vh - var(--topnav-h));
+    overflow-y:auto;
+  }
+  .topnav-center.mobile-open{display:flex}
+  .topnav-center button{
+    padding:14px 16px;
+    text-align:left;
+    font-size:.92rem;
+    border-radius:var(--radius-sm);
+    width:100%;
+  }
+  .topnav-brand-text b{font-size:14px}
+  .topnav-brand-text span{font-size:10px}
+  .topnav-avatar-info b{font-size:11px}
+  .topnav-avatar-info span{font-size:9px}
+  .content{padding:16px 18px}
+  .grid4,.grid3,.grid2,.auto,.auto3,.reg-grid,.kpi-row,.chart-row{grid-template-columns:1fr}
+  .chart-row>.card{max-height:clamp(340px,50vh,520px)}
+  .form{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  .task{grid-template-columns:70px 1fr;gap:12px}
+  .task .actions,.clean-task .actions{grid-column:1/-1;justify-content:flex-start}
+  .thumb{width:70px;height:58px}
+  .drawer{width:100%}
+  .modal-card{width:96vw;padding:20px}
+  .ring-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .vertical-bars,.elegant-bars,.vchart{height:auto;overflow-x:auto}
+  .cal-heads,.cal-days{grid-template-columns:repeat(2,1fr)}
+  .pro-bar-row{grid-template-columns:1fr}
+  .notif-dropdown{width:calc(100vw - 32px);right:-40px}
+}
+
+/* ============================================
+   MOBILE — max-width: 640px
+   ============================================ */
+@media (max-width:640px){
+  .topnav{padding:0 12px}
+  .topnav-brand-text b{display:none}
+  .topnav-brand-text span{display:block;font-size:11px;color:var(--mut)}
+  .topnav-icon-btn{width:36px;height:36px;font-size:1rem}
+  .topnav-avatar-btn{padding:4px 8px 4px 4px}
+  .topnav-avatar-info b,.topnav-avatar-info span{display:none}
+  .topnav-avatar-chevron{display:none}
+  .content{padding:14px 12px}
+  .login-left{display:none}
+  .login-right{width:100%;min-width:auto;padding:24px}
+  .login-card{padding:28px 24px}
+  .brand h1{font-size:1.3rem}
+  .quick{grid-template-columns:repeat(2,1fr)}
+  header h2{font-size:1.25rem}
+  .card{padding:16px;border-radius:var(--radius)}
+  .kpi .val{font-size:1.4rem}
+  .task,.clean-task{grid-template-columns:1fr}
+  .task .thumb,.clean-task .thumb{width:100%;height:70px}
+  .actions{width:100%}
+  .actions .btn,.task .btn,.clean-task .btn{flex:1 1 100%;width:100%}
+  .btn{width:100%}
+  .chat-answer{grid-template-columns:1fr}
+  .smart-notif{grid-template-columns:1fr}
+  .notif-icon{width:38px;height:38px}
+  .ring-grid{grid-template-columns:1fr}
+  .ring{width:82px;height:82px}
+  .ring b{width:52px;height:52px;font-size:15px}
+  .pro-bar-row,.compact-row{grid-template-columns:1fr}
+  .pro-bar-row>span,.compact-row span{white-space:normal}
+  .cal-heads{display:none}
+  .cal-days{grid-template-columns:1fr}
+  .cal-day{min-height:auto}
+  input,select,textarea{font-size:16px}
+  .table{min-width:680px}
+  .notif-scroll{max-height:calc(100vh - 160px)}
+  .notif-page-scroll{max-height:50vh}
+  .dir-export-bar{flex-direction:column}
+  .actions-column{width:100%}
+}
+
+@media (max-width:390px){
+  .content{padding:10px 8px}
+  .card{padding:14px}
+  .logo{width:46px;height:46px}
+  .logo.sm{width:34px;height:34px}
+  .checkbox-grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr))}
+  .login-card{padding:20px 16px}
+  .quick{grid-template-columns:1fr 1fr}
+  .quick button{padding:10px 6px;font-size:.8rem}
+}
+
+/* ============================================
+   DESKTOP+ — min-width: 1025px
+   ============================================ */
+@media (min-width:1025px){
+  .topnav-center button{
+    padding:8px 18px;font-size:.88rem;
+  }
+  .auto .course-card-action{width:100%}
+  .course-card-action .btn{flex:0 0 auto}
+}
+
+/* ============================================
+   PRINT
+   ============================================ */
+@media print{
+  body{background:#fff;color:#000}
+  .topnav,.topnav-hamburger,.bell,.btn,.sidebtn,.hamburger-btn,.mobile-overlay{display:none!important}
+  .app,.content{display:block!important;margin:0!important;padding:0!important;width:100%!important;min-height:auto!important;background:#fff!important}
+  .card{box-shadow:none!important;border:1px solid #ddd!important;break-inside:avoid}
+  .table th{background:#f5f5f5!important;color:#000!important}
+}

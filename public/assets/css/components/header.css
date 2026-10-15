@@ -1,0 +1,10 @@
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:14px}
+header h2{font-size:32px;margin:4px 0 0}
+header span,.muted{color:var(--mut);font-size:13px}
+.top{display:flex;gap:12px;align-items:center}
+.bell{width:46px;height:46px;border:1px solid var(--line);border-radius:15px;background:white;position:relative}
+.bell:hover{background:var(--soft)}
+.chip:hover{border-color:var(--p);transition:.15s}
+.bell b{position:absolute;right:-5px;top:-5px;background:var(--r);color:white;border-radius:999px;padding:2px 6px;font-size:11px}
+.chip{display:flex;gap:12px;align-items:center;background:white;border:1px solid var(--line);border-radius:18px;padding:9px 13px}
+.avatar{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--p),var(--s));color:white;display:grid;place-items:center;font-weight:900}

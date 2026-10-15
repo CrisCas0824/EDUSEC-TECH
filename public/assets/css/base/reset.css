@@ -1,0 +1,8 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:'Plus Jakarta Sans',Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select,textarea{font-family:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+a{color:var(--p);text-decoration:none}
+a:hover{text-decoration:underline}
+

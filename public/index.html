@@ -1,0 +1,665 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>EDUSEC TECH</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="public/assets/css/base/variables.css">
+<link rel="stylesheet" href="public/assets/css/base/reset.css">
+<link rel="stylesheet" href="public/assets/css/base/layout.css">
+<link rel="stylesheet" href="public/assets/css/components/login.css">
+<link rel="stylesheet" href="public/assets/css/components/buttons.css">
+<link rel="stylesheet" href="public/assets/css/components/topnav.css">
+<link rel="stylesheet" href="public/assets/css/components/cards.css">
+<link rel="stylesheet" href="public/assets/css/components/tables.css">
+<link rel="stylesheet" href="public/assets/css/components/widgets.css?v=6.7">
+<link rel="stylesheet" href="public/assets/css/components/overlays.css">
+<link rel="stylesheet" href="public/assets/css/components/charts.css">
+<link rel="stylesheet" href="public/assets/css/components/sections.css?v=6.7">
+<link rel="stylesheet" href="public/assets/css/responsive/responsive.css">
+
+
+
+
+
+
+
+<style>
+/* ====== PERFECT CENTERING FOR BRAND PANEL ====== */
+.login-brand {
+  position: relative;
+  z-index: 1;
+  max-width: 460px;
+  color: #fff;
+  text-align: center !important;
+  margin: 0 auto !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-brand h1 {
+  text-align: center !important;
+  margin: 14px 0 6px 0 !important;
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.brand-logo-img {
+  width: 160px;
+  height: 160px;
+  max-width: 80%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 16px auto !important;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,0.4));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.brand-logo-img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 14px 30px rgba(52, 211, 153, 0.45));
+}
+
+.brand-slogan-main {
+  font-size: 15.5px;
+  font-weight: 600;
+  font-style: italic;
+  color: #34d399;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  letter-spacing: 0.4px;
+  text-align: center !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.brand-subtitle-main {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+  text-align: center !important;
+  text-transform: uppercase;
+}
+
+.login-features {
+  margin-top: 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  max-width: 320px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ====== FULLSCREEN LUXURY SPLASH SCREEN ====== */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #112643 0%, #070d17 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s;
+  overflow: hidden;
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+  transform: scale(1.08);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splash-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.splash-logo-container {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-logo {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 32px rgba(52, 211, 153, 0.6));
+  animation: splashZoom 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.splash-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  border: 2px solid rgba(52, 211, 153, 0.15);
+  border-top-color: #34d399;
+  border-bottom-color: #3b82f6;
+  animation: spinRing 2.2s linear infinite;
+}
+
+@keyframes spinRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes splashZoom {
+  0% { transform: scale(0.3); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.splash-title {
+  font-size: 40px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 2.5px;
+  margin-bottom: 8px;
+  animation: splashFadeIn 0.8s ease 0.3s forwards;
+  opacity: 0;
+}
+.splash-title span {
+  color: #3b82f6;
+}
+
+.splash-slogan {
+  font-size: 18px;
+  font-weight: 600;
+  font-style: italic;
+  color: #34d399;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+  animation: splashFadeIn 0.8s ease 0.6s forwards;
+  opacity: 0;
+  text-shadow: 0 2px 14px rgba(52, 211, 153, 0.5);
+}
+
+.splash-sub {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  animation: splashFadeIn 0.8s ease 0.9s forwards;
+  opacity: 0;
+}
+
+@keyframes splashFadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.splash-loader {
+  width: 240px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.splash-progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #34d399, #3b82f6);
+  border-radius: 10px;
+  animation: loadProgress 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes loadProgress {
+  0% { width: 0%; }
+  60% { width: 75%; }
+  100% { width: 100%; }
+}
+</style>
+
+
+<style>
+/* ====== INTERACTIVE LANDING FEATURE BUTTONS & MODALS ====== */
+.login-features {
+  margin-top: 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  width: 100% !important;
+  max-width: 380px !important;
+}
+
+.login-feature-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 12px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.login-feature-btn:hover {
+  background: rgba(52, 211, 153, 0.15);
+  border-color: #34d399;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(52, 211, 153, 0.25);
+}
+
+.lf-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #34d399, #3b82f6);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.lf-text strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.lf-text small {
+  display: block;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+/* Feature Modal Overlay */
+.feature-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.feature-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.feature-modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  position: relative;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  color: #0f172a;
+}
+
+.feature-modal-overlay.active .feature-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.feature-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #f1f5f9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #64748b;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s;
+}
+
+.feature-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+</style>
+
+<style>
+.login-features {
+  margin-top: 22px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  width: 100% !important;
+  max-width: 400px !important;
+  align-items: center !important;
+}
+
+.login-feature-btn {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.14) !important;
+  padding: 0 16px !important;
+  border-radius: 14px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-align: left !important;
+  width: 380px !important;
+  height: 62px !important;
+  box-sizing: border-box !important;
+}
+
+.login-feature-btn:hover {
+  background: rgba(52, 211, 153, 0.16) !important;
+  border-color: #34d399 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(52, 211, 153, 0.25) !important;
+}
+
+.lf-icon {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 10px !important;
+  background: linear-gradient(135deg, #34d399, #3b82f6) !important;
+  color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+  flex-shrink: 0 !important;
+}
+
+.lf-text {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.lf-text strong {
+  display: block !important;
+  font-size: 0.92rem !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+
+.lf-text small {
+  display: block !important;
+  font-size: 0.76rem !important;
+  color: #94a3b8 !important;
+  margin-top: 2px !important;
+  white-space: nowrap !important;
+}
+</style>
+</head><body>
+
+<!-- ====== FULLSCREEN INTRO SPLASH SCREEN ====== -->
+<div id="splash-screen" class="splash-screen">
+  <div class="splash-content">
+    <div class="splash-logo-container">
+      <img src="./img/logo.png" alt="EduSec Tech Logo" class="splash-logo">
+      <div class="splash-ring"></div>
+    </div>
+    <h1 class="splash-title">EDUSEC<span>TECH</span></h1>
+    <p class="splash-slogan">“Conectando familias con el futuro de la educación”</p>
+    <p class="splash-sub">Plataforma Educativa Integral</p>
+    <div class="splash-loader"><div class="splash-progress"></div></div>
+  </div>
+</div>
+<script>
+  (function() {
+    function hideSplash() {
+      const splash = document.getElementById('splash-screen');
+      if (splash) {
+        splash.classList.add('fade-out');
+        setTimeout(() => { if (splash.parentNode) splash.parentNode.removeChild(splash); }, 850);
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() { setTimeout(hideSplash, 2200); });
+    } else {
+      setTimeout(hideSplash, 2200);
+    }
+  })();
+</script>
+
+
+<!-- ====== FULLSCREEN INTRO SPLASH SCREEN ====== -->
+
+
+<!-- ====== LOGIN SCREEN ====== -->
+<main id="login" class="login">
+  <div class="login-left">
+    <div class="login-brand">
+      <img src="./img/logo.png" alt="EduSec Tech Logo" class="brand-logo-img">
+      <h1>EDUSEC<span>TECH</span></h1>
+      <p class="brand-slogan-main">“Conectando familias con el futuro de la educación”</p>
+      <p class="brand-subtitle-main">Plataforma Educativa Integral</p>
+      <div class="login-features">
+        <div class="login-feature-btn" onclick="showFeatureModal('gestion')">
+          <span class="lf-icon">&#9632;</span>
+          <div class="lf-text">
+            <strong>Gestión académica inteligente</strong>
+            <small>Haz clic para ver detalles (IA, Bimestres y Gráficos)</small>
+          </div>
+        </div>
+        <div class="login-feature-btn" onclick="showFeatureModal('seguimiento')">
+          <span class="lf-icon">&#9654;</span>
+          <div class="lf-text">
+            <strong>Seguimiento en tiempo real</strong>
+            <small>Haz clic para ver detalles (Tareas y Asistencia)</small>
+          </div>
+        </div>
+        <div class="login-feature-btn" onclick="showFeatureModal('comunidad')">
+          <span class="lf-icon">&#9733;</span>
+          <div class="lf-text">
+            <strong>Comunidad educativa conectada</strong>
+            <small>Haz clic para ver detalles (Hora Disponible)</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="login-right">
+    <div class="login-card">
+      <div class="brand"><h1>Iniciar Sesion</h1><p class="muted">Accede a tu cuenta institucional</p></div>
+      <form id="loginForm">
+        <label>Correo institucional<input id="email" type="email" placeholder="tu nombre@edusec.pe" required autofocus></label>
+        <label>Contrasena<div class="password-wrap"><input id="password" type="password" placeholder="Ingresa tu contrasena" required><button type="button" class="pw-toggle" onclick="togglePassword('password',this)" tabindex="-1">&#9673;</button></div></label>
+        <button class="btn primary full">Ingresar</button>
+        <a id="forgotLink" href="#" class="forgot-link">Olvidaste tu contrasena?</a>
+      </form>
+      <div class="quick-divider"><span>Acceso rapido de demostracion</span></div>
+      <div class="quick">
+        <button data-e="padre001@edusec.pe">Padre</button>
+        <button data-e="docente001@edusec.pe">Docente</button>
+        <button data-e="estudiante001@edusec.pe">Estudiante</button>
+        <button data-e="director001@edusec.pe">Director</button>
+      </div>
+      <div style="text-align:center;margin-top:14px;">
+        <a href="docs/ARQUITECTURA.html" target="_blank" style="font-size:0.82rem;color:#3b82f6;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:5px;">🏛️ Ver Arquitectura del Sistema</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ====== APP SHELL ====== -->
+<main id="app" class="app hidden">
+  <!-- Top Navigation Bar -->
+  <header class="topnav main-header navbar-container" id="topnav">
+    <button class="topnav-hamburger" id="topnavHamburger" type="button">&#9776;</button>
+    <div class="topnav-brand">
+      <img src="./img/logo.png" alt="EduSec Tech Logo" style="width: 42px; height: 42px; object-fit: contain; filter: drop-shadow(0 3px 8px rgba(0,0,0,0.25)); border-radius: 10px; display: inline-block; vertical-align: middle; margin-right: 10px;">
+      <div class="topnav-brand-text"><b>EDUSEC TECH</b><span id="roleLabel"></span></div>
+    </div>
+    <nav class="topnav-center" id="topNav"></nav>
+    <div class="topnav-right">
+      <button class="topnav-icon-btn" id="bell" title="Notificaciones">&#128276;<span class="notif-badge" id="ncount">0</span></button>
+      <button class="topnav-icon-btn" id="msgBtn" title="Mensajes" onclick="openPage('mensajes')">&#9993;</button>
+      <div class="topnav-avatar-wrap" id="avatarWrap">
+        <button class="topnav-avatar-btn user-profile-pill" id="avatarBtn">
+          <div id="avatar" class="user-avatar-badge"></div>
+          <div class="user-info-text"><b id="uname" class="user-name"></b><span id="umail" class="user-email"></span></div>
+          <span class="topnav-avatar-chevron">&#9662;</span>
+        </button>
+        <div class="profile-dropdown hidden" id="profileDropdown">
+          <button class="profile-dropdown-item" onclick="openPage('perfil')"><span class="icon">&#9679;</span>Mi perfil</button>
+          <button class="profile-dropdown-item" onclick="openPage('bitacora')"><span class="icon">&#8227;</span>Bitacora</button>
+          <button class="profile-dropdown-item" onclick="window.open('docs/ARQUITECTURA.html','_blank')"><span class="icon">&#9881;</span>Arquitectura</button>
+          <div class="profile-dropdown-divider"></div>
+          <button class="profile-dropdown-item" id="resetBtn"><span class="icon">&#8634;</span>Restaurar datos</button>
+          <button class="profile-dropdown-item logout" id="logout"><span class="icon">&#8594;</span>Cerrar sesion</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <section id="content" class="content"></section>
+</main>
+
+<!-- Overlays -->
+<div id="drawer" class="drawer hidden">
+  <div class="drawer-head" style="display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:12px;">
+    <h3 style="margin:0;">Notificaciones</h3>
+    <button class="btn secondary sm" onclick="document.getElementById('drawer').classList.add('hidden')" style="width:32px;height:32px;padding:0;display:grid;place-items:center;border-radius:50%;">&#10005;</button>
+  </div>
+  <div id="notifs"></div>
+</div>
+<div id="modal" class="modal hidden"><div class="modal-card" id="modalCard"><div id="modalBody"></div></div></div>
+<div id="toastBox" class="toast hidden"></div>
+
+<!-- Scripts -->
+<script src="public/assets/js/data/seed.js"></script>
+<script src="public/assets/js/data/seeders.js"></script>
+<script src="public/assets/js/utils/state.js"></script>
+<script src="public/assets/js/utils/charts.js"></script>
+<script src="public/assets/js/components/shared.js"></script>
+<script src="public/assets/js/components/routers.js"></script>
+<script src="public/assets/js/data/messages-data.js"></script>
+<script src="public/assets/js/components/messages-logic.js"></script>
+<script src="public/assets/js/components/messages.js?v=6.7"></script>
+<script src="public/assets/js/components/notifications.js"></script>
+<script src="public/assets/js/components/calendar.js"></script>
+  <script src="public/assets/js/components/availability.js"></script>
+<script src="public/assets/js/parent/parent.js"></script>
+<script src="public/assets/js/student/student.js"></script>
+<script src="public/assets/js/teacher/teacher.js"></script>
+<script src="public/assets/js/teacher/courses.js"></script>
+<script src="public/assets/js/teacher/tasks.js"></script>
+<script src="public/assets/js/teacher/attendance.js"></script>
+<script src="public/assets/js/teacher/bimesters.js"></script>
+<script src="public/assets/js/director/director.js?v=6.7"></script>
+<script src="public/assets/js/utils/ai-config.js"></script>
+<script src="public/assets/js/data/ai-data.js"></script>
+<script src="public/assets/js/components/ai-assistant.js"></script>
+<script src="public/assets/js/components/ai-integration.js"></script>
+<script src="public/assets/js/data/forms-data.js"></script>
+<script src="public/assets/js/components/forms-logic.js"></script>
+<script src="public/assets/js/components/forms-teacher.js"></script>
+<script src="public/assets/js/components/forms-student.js"></script>
+<script src="public/assets/js/utils/app.js"></script>
+<script src="public/assets/js/components/forms-integration.js"></script>
+
+<!-- ====== INTERACTIVE FEATURE DETAILS MODAL ====== -->
+<div id="featureModal" class="feature-modal-overlay" onclick="closeFeatureModal(event)">
+  <div class="feature-modal-card" onclick="event.stopPropagation()">
+    <button class="feature-modal-close" onclick="closeFeatureModal()">&times;</button>
+    <div id="featureModalBody"></div>
+  </div>
+</div>
+
+<script>
+var featureData = {
+  gestion: {
+    icon: '🔳',
+    title: 'Gestión Académica Inteligente',
+    subtitle: 'IA EduCoach, Notas por 4 Bimestres y Gráficos de Anillos',
+    color: '#3b82f6',
+    items: [
+      '<b>Chat Inteligente EduCoach AI:</b> Analiza las notas y asistencias del alumno para brindar consejos pedagógicos prácticos a los padres.',
+      '<b>Calificación por 4 Bimestres:</b> Registro oficial de notas con alertas automáticas de bajo y alto rendimiento.',
+      '<b>Gráficos de Anillos:</b> Visualización dinámica del porcentaje de avance y rendimiento por asignatura.',
+      '<b>Gestión de Sílabos:</b> Carga y consulta de sílabos institucionales por curso.'
+    ]
+  },
+  seguimiento: {
+    icon: '▶️',
+    title: 'Seguimiento en Tiempo Real',
+    subtitle: 'Tareas pendientes, control de asistencia y alertas',
+    color: '#34d399',
+    items: [
+      '<b>Control de Tareas Pendientes:</b> Listado centralizado con fechas límite de entrega, archivos adjuntos y estado de cumplimiento.',
+      '<b>Historial Diario de Asistencia:</b> Registro inmediato de asistencias, tardanzas y justificaciones por curso.',
+      '<b>Alertas Preventivas:</b> Notificaciones tempranas cuando una nota baja o inasistencia requiere intervención familiar.',
+      '<b>Calendario Interactivo de 12 Meses:</b> Agenda integrada para padres, alumnos y docentes.'
+    ]
+  },
+  comunidad: {
+    icon: '⭐️',
+    title: 'Comunidad Educativa Conectada',
+    subtitle: 'Hora Docente Disponible y Mensajería Directa',
+    color: '#8b5cf6',
+    items: [
+      '<b>Hora Docente Disponible:</b> Muestra el horario y estado en tiempo real del profesor (🟢 Libre / 🟡 Solo Cita Previa / 🔴 Ocupado).',
+      '<b>Mensajería Directa Padre-Docente:</b> Chat seguro para enviar consultas puntuales sobre tareas sin llamadas fuera de hora.',
+      '<b>Gamificación Escolar:</b> Sistema de recompensas con insignias y canje de estrellas por cumplimiento académico.',
+      '<b>Soporte Bilingüe e Inclusivo:</b> Plataforma accesible en Español y Quechua (Ley N.º 29733 y WCAG 2.1).'
+    ]
+  }
+};
+
+function showFeatureModal(key) {
+  var d = featureData[key];
+  if (!d) return;
+  var body = document.getElementById('featureModalBody');
+  var html = '<div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">';
+  html += '<span style="font-size:2rem;">' + d.icon + '</span>';
+  html += '<div><h3 style="margin:0; font-size:1.3rem; color:#0f172a;">' + d.title + '</h3>';
+  html += '<span style="font-size:0.85rem; color:' + d.color + '; font-weight:bold;">' + d.subtitle + '</span></div></div>';
+  html += '<div style="border-top:1px solid #e2e8f0; padding-top:16px; margin-top:12px;"><ul style="padding-left:20px; display:grid; gap:10px; margin:0;">';
+  d.items.forEach(function(item) {
+    html += '<li style="font-size:0.92rem; color:#334155; line-height:1.4;">' + item + '</li>';
+  });
+  html += '</ul></div>';
+  html += '<button onclick="closeFeatureModal()" class="btn primary" style="width:100%; margin-top:24px; padding:10px; font-weight:bold;">Entendido</button>';
+  body.innerHTML = html;
+  var modal = document.getElementById('featureModal');
+  if (modal) modal.classList.add('active');
+}
+
+function closeFeatureModal(e) {
+  var modal = document.getElementById('featureModal');
+  if (modal) modal.classList.remove('active');
+}
+</script>
+
+</body></html>

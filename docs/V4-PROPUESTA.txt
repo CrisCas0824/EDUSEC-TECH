@@ -1,0 +1,14 @@
+
+V4 PROPUESTA PROFESIONAL
+
+Modulos nuevos:
+- Director/Administrador
+- Mensajeria Padre-Docente
+- Mensajeria Alumno-Docente
+- Horarios
+- Reportes bimestrales
+- Gestion de docentes, padres y alumnos
+
+IMPORTANTE:
+Para implementar completamente estas funciones se requiere modificar
+la logica JS, rutas, vistas HTML, persistencia de datos y autenticacion.
