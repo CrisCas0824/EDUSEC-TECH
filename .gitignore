@@ -1,23 +1,106 @@
-# Logs & caches
+# =========================================================
+# EDUSEC TECH - .gitignore
+# Reglas de exclusión para seguridad, rendimiento y limpieza
+# =========================================================
+
+# ---------------------------------------------------------
+# 1. SEGURIDAD Y SECRETOS (Previene bloqueos de GitHub Secret Scanning)
+# ---------------------------------------------------------
+# Variables de entorno y credenciales
+.env
+.env.*
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Llaves privadas, certificados y tokens
+*.key
+*.pem
+*.cert
+*.crt
+*.pfx
+*.p12
+
+# Archivos de configuración con contraseñas o credenciales
+credentials.json
+service-account*.json
+client_secret*.json
+secrets/
+*secret*.json
+*secret*.js
+ai-keys.js
+config.private.js
+
+# ---------------------------------------------------------
+# 2. DEPENDENCIAS Y PAQUETES PESADOS
+# ---------------------------------------------------------
+node_modules/
+bower_components/
+vendor/
+jspm_packages/
+
+# ---------------------------------------------------------
+# 3. LOGS, CACHÉS Y DIAGNÓSTICOS
+# ---------------------------------------------------------
 *.log
 npm-debug.log*
 yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.cache/
+.parcel-cache/
+.npm/
+.eslintcache/
 
-# OS Files
+# ---------------------------------------------------------
+# 4. CARPETAS DE COMPILACIÓN Y ARCHIVOS TEMPORALES
+# ---------------------------------------------------------
+dist/
+build/
+out/
+tmp/
+temp/
+scratch/
+*.tmp
+*.temp
+
+# ---------------------------------------------------------
+# 5. ARCHIVOS DEL SISTEMA OPERATIVO
+# ---------------------------------------------------------
+# Windows
 Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
 Desktop.ini
-.DS_Store
+$RECYCLE.BIN/
 
-# Editor directories and files
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Linux
+*~
+.directory
+
+# ---------------------------------------------------------
+# 6. EDITORES DE CÓDIGO E IDEs
+# ---------------------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 .idea/
-.vscode/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-
-# Temporary files
-scratch/
-tmp/
-*.tmp
+*.swo
+*.swp
+*.sublime-project
+*.sublime-workspace
